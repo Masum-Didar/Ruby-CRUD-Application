@@ -30,6 +30,13 @@ class PersonApp
   def get_all_persons
     @persons
   end
+  def get_one_person (person_name)
+    @persons.each do |person|
+      if person[:name] ==  person_name
+        return person
+      end
+    end
+  end
 end
 
 person_app = PersonApp.new
@@ -41,5 +48,6 @@ person_app.add_person({ name:  'Habib', age: 3})
 
 person_app.update_person({ name: 'Mahmud', age: 53})
 person_app.delete_person({ name: 'Mahmud', age: 53})
+p person_app.get_one_person('Habib')
 
 p person_app.get_all_persons
